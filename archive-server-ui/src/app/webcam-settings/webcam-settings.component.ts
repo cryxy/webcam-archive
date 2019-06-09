@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { WebcamDto } from '../api/generated/model';
 import { WebcamService } from '../services/webcam.service';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'webcam-settings',
