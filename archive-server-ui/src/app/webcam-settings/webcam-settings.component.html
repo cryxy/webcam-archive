@@ -1,0 +1,52 @@
+<div *ngIf="webcam !== undefined" class="webcam-tab-content" fxLayout="row" fxLayout.xs="column" fxLayout="row wrap" fxLayoutGap="0.5%"
+  fxLayoutAlign="center">
+  <form (ngSubmit)="onSubmit()" #webcamForm="ngForm">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Change Settings</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="settings-container" fxLayout="column" fxLayout.xs="column" fxLayoutGap="0.5%" fxLayoutAlign="left">
+          <mat-form-field>
+            <input matInput [(ngModel)]="webcam.name" id="name" name="name" placeholder="Name" required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput [(ngModel)]="webcam.location" id="location" name="locations" placeholder="Location">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput [(ngModel)]="webcam.maxAge" id="maxAge" name="maxAge" placeholder="Max snapshot age in days">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput [(ngModel)]="webcam.alertMail" id="alertMail" name="alertMail" placeholder="Alert mail">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput [(ngModel)]="webcam.minSnapshotsThreshold" id="minSnapshotsThreshold" name="minSnapshotsThreshold" placeholder="Min snapshots threshold"
+              required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput [(ngModel)]="webcam.alertThreshold" id="alertThreshold" name="alertThreshold" placeholder="Alert threshold"
+              required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput [(ngModel)]="webcam.snapshotDir" id="snapshotDir" name="snapshotDir" placeholder="Snapshot dir" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput [(ngModel)]="webcam.clientId" id="clientId" name="clientId" placeholder="Client Id">
+          </mat-form-field>
+
+
+
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button type="submit" class="btn btn-success" [disabled]="!webcamForm.form.valid" mat-button>SAVE</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

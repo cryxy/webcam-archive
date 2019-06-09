@@ -1,0 +1,58 @@
+swarm:
+  context:
+    path: /varchive
+  undertow:
+    servers:
+      default-server:
+        hosts:
+          default-host:
+            access-log-setting:
+              predicate: true
+              use-server-log: true
+    servlet-containers:
+      default:
+         disable-caching-for-secured-pages: false
+  deployment:
+    archive-server.war:
+      web:
+        login-config:
+          auth-method: BASIC
+          security-domain: my-domain
+        security-constraints:
+          - url-pattern: /*
+            roles: [admin, user]
+  security:
+    security-domains:
+      my-domain:
+        classic-authentication:
+          login-modules:
+            UsersRoles:
+              code: UsersRoles
+              flag: required
+              module-options:
+                usersProperties: config/users.properties
+                rolesProperties: config/roles.properties
+  datasources:
+    jdbc-drivers:
+      com.mysql:
+        driver-class-name: com.mysql.jdbc.Driver
+        xa-datasource-class-name: com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+        driver-module-name: com.mysql
+de:
+  cryxy:
+    homeauto:
+      surveillance:
+        cleanUp:
+          interval: 12
+        mail:
+          active: false
+          smtp:
+            host: localhost
+            port: 25
+            from: root
+        io:
+          initialwalk: false
+          watch: false
+          autoDelete: false
+        mqtt:
+          pushEvents: false

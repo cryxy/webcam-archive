@@ -1,0 +1,17 @@
+<div *ngIf="webcam">
+  <mat-card>
+    <h3>{{webcam.name}}</h3>
+  </mat-card>
+
+  <mat-tab-group class="webcam-tab-group">
+    <h3>{{webcam.name}}</h3>
+    <mat-tab label="Events">
+      <div class="webcam-tab-content">
+        <event-overview [webcam]="webcam"></event-overview>
+      </div>
+    </mat-tab>
+    <mat-tab label="Settings">
+      <webcam-settings [webcam]="webcam"></webcam-settings>
+    </mat-tab>
+  </mat-tab-group>
+</div>

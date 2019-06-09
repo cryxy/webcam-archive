@@ -1,0 +1,49 @@
+<mat-card>
+
+  <div fxLayout="row" fxLayout.xs="column" fxLayout="row wrap" fxLayoutGap="0.5%" fxLayoutAlign="center">
+    <mat-form-field>
+      <mat-select [(value)]="selectedStartDate" placeholder="Date" (selectionChange)="onChangedValue()">
+        <mat-option *ngFor="let eventDate of eventDates" [value]="eventDate">{{eventDate | date : 'fullDate'}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [(ngModel)]="webcam.minSnapshotsThreshold" placeholder="Min snapshots threshold" type="number" (change)="onChangedValue()">
+    </mat-form-field>
+
+    <div>
+      <mat-spinner *ngIf="loadingEvents === true" [diameter]="45"></mat-spinner>
+    </div>
+
+  </div>
+
+</mat-card>
+<br>
+<div>
+
+  <div fxLayout="row" fxLayout.xs="column" fxLayout="row wrap" fxLayoutGap="0.5%" fxLayoutAlign="center">
+
+    <!--<webcam-card *ngFor="let webcam of webcams" [webcam]="webcam"></webcam-card> -->
+    <mat-card class="event-overview-card" *ngFor="let event of events">
+      <mat-card-header>
+        <img mat-card-avatar src='assets/camera.png'>
+        <mat-card-title>
+                <span matBadge="{{event.snapshotsSize}}" matBadgeOverlap="false" matBadgePosition="above before">{{event.startDate | date : 'short' }} - {{event.endDate | date : 'shortTime' }}</span>          
+        </mat-card-title>
+        <!-- <mat-card-subtitle></mat-card-subtitle> -->
+      </mat-card-header>
+
+
+      <img mat-card-image [lazyLoad]="getSnapshotUrl(event.snapshots[0].id)" [offset]="100"
+        alt="Event {{event.startDate | date : 'short' }}" (click)="openEvent(event.id)">
+
+      <mat-card-actions>
+        <button mat-button routerLink="/webcam/{{webcam.id}}/events/{{event.id}}">
+          <mat-icon>collections</mat-icon>
+          OPEN
+        </button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+</div>

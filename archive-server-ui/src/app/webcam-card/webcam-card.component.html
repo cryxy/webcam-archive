@@ -1,0 +1,17 @@
+<mat-card class="webcam-card">
+  <mat-card-header>
+    <img mat-card-avatar src='assets/videocam.png'>
+    <mat-card-title>{{webcam.name | uppercase }}</mat-card-title>
+    <mat-card-subtitle>{{webcam.location}}</mat-card-subtitle>
+  </mat-card-header>
+  
+
+
+    <img mat-card-image src="{{apiHost}}/varchive/api/webcams/{{webcam.id}}/snapshots/latest/image.jpg?size=MEDIUM"
+      alt="Webcam {{webcam.name}}" (click)="openFullScreen()">
+ 
+  <mat-card-actions>
+    <button mat-button routerLink="/webcam/{{webcam.id}}/events" routerLinkActive="active">EVENTS</button>
+    <a mat-button routerLink="/webcam/{{webcam.id}}/settings">SETTINGS</a>
+  </mat-card-actions>
+</mat-card>

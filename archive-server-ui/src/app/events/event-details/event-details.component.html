@@ -1,0 +1,38 @@
+<div *ngIf="event">
+  <mat-card>
+    <div fxLayout="row" fxLayout.xs="column" fxLayout="row wrap" fxLayoutGap="0.5%" fxLayoutAlign="left">
+      <button mat-button (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+        BACK
+      </button>
+      <h3>Event {{event.startDate | date : 'short' }} - {{event.endDate | date : 'shortTime' }}</h3>
+    </div>
+  </mat-card>
+  <br>
+  <div>
+
+    <div fxLayout="row" fxLayout.xs="column" fxLayout="row wrap" fxLayoutGap="0.5%" fxLayoutAlign="center">
+
+      <mat-card class="event-detail-card" *ngFor="let snapshot of event.snapshots">
+        <mat-card-header>
+          <img mat-card-avatar src='assets/camera.png'>
+          <mat-card-title>
+            <h3>{{snapshot.timestamp | date : 'short' }}</h3>
+          </mat-card-title>
+          <!-- <mat-card-subtitle></mat-card-subtitle> -->
+        </mat-card-header>
+
+
+        <img mat-card-image [useSrcset]="true" [lazyLoad]="getSnapshotUrl(snapshot.id)" [offset]="100" alt="snapshot {{snapshot.timestamp | date : 'short' }}">
+
+        <mat-card-actions>
+          <a mat-button href="{{apiHost}}/varchive/api/snapshots/{{snapshot.id}}/image.jpg?size=ORIGINAL" target="_blank">
+            <mat-icon>image</mat-icon>
+            OPEN
+          </a>
+        </mat-card-actions>
+      </mat-card>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+project: 
+  stage: prod 
+swarm:
+  datasources:
+    data-sources:
+      ArchiveDS:
+        driver-name: com.mysql
+        connection-url: jdbc:mysql://server:3306/db
+        user-name: name
+        password: name
+  logging:
+    periodic-rotating-file-handlers:
+      FILE:
+        file:
+          path: logs/archive-server.log
+        suffix: .yyyy-MM-dd
+    root-logger:
+      handlers:
+      - CONSOLE
+      - FILE
+        
+de:
+  cryxy:
+    homeauto:
+      surveillance:
+        cleanUpInterval: 12
+        mail:
+          active: true
+          smtp:
+            host: mail.server
+            port: 25
+            from: mail@mail.de
+        io:
+          initialwalk: false
+          watch: false
+          autoDelete: false
+        mqtt:
+          publishEvents: false
+          topic: varchive
+          clientId: varchive
+          server:
+            uri: tcp://server
+            user:
+              name: user
+              password: geheim
