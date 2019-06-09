@@ -1,6 +1,6 @@
 {
   "/varchive/api/*": {
-    "target": "http://localhost",
+    "target": "http://int-services",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
