@@ -1,7 +1,7 @@
 /* tslint:disable:max-line-length */
 /**
  * VArchive API
- * undefined/swagger
+ * undefined/varchive/api
  */
 
 export interface SnapshotDto {

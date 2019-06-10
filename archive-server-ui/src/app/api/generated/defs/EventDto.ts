@@ -1,7 +1,7 @@
 /* tslint:disable:max-line-length */
 /**
  * VArchive API
- * undefined/swagger
+ * undefined/varchive/api
  */
 
 import * as __model from '../model';
