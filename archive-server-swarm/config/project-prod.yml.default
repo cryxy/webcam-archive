@@ -1,6 +1,6 @@
 project: 
   stage: prod 
-swarm:
+thorntail:
   datasources:
     data-sources:
       ArchiveDS:

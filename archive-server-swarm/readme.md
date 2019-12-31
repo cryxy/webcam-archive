@@ -1,8 +1,8 @@
 # Start per Plugin
-mvn wildfly-swarm:run -Dswarm.project.stage=prod -Dswarm.project.stage.file=config/project-prod.yml
+mvn thorntail:run -Dthorntail.project.stage=prod -Dthorntail.project.stage.file=config/project-prod.yml
 
 # Start per Ueber-JAR
-/usr/bin/java -jar archive-server-swarm.jar -s/opt/varchive/config/project-prod.yml
+/usr/bin/java -jar archive-server-thorntail.jar -s/opt/varchive/config/project-prod.yml
 
 # Debugen
-mvn wildfly-swarm:run -Dswarm.project.stage.file=config/project-prod.yml -Dswarm.debug.port=8000
+mvn thorntail:run -Dthorntail.project.stage.file=config/project-prod.yml -Dthorntail.debug.port=8000
