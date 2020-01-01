@@ -10,4 +10,4 @@ RUN chown -R varchive:varchive /start
 EXPOSE 8080
 WORKDIR "/start"
 USER varchive
-CMD ["java", "-jar","archive-server-thorntail.jar", "-s/start/config/project-prod.yml"]
+CMD ["java", "-Xmx512m", "-jar","archive-server-thorntail.jar", "-s/start/config/project-prod.yml"]
