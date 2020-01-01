@@ -20,3 +20,22 @@ steps:
     publishJUnitResults: false
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+- task: OneLuckiDev.json2variable.vsts-release-web-test.oneLuckiDevJson2Variable@1 
+  displayName: 'JSON to Variable'
+  inputs: 
+    jsonFile: '$(Build.Repository.LocalPath)/target/classes/version.json' 
+    shouldPrefixVariables: true 
+    variablePrefix: json
+- task: Docker@2
+  displayName: Docker login    
+  inputs:
+    containerRegistry: 'docker@github'
+    command: 'login'
+- task: Docker@2
+  displayName: Build and push the image
+  inputs:
+    command: buildAndPush
+    dockerfile: '$(Build.SourcesDirectory)/archive-server-swarm/Dockerfile'
+    repository: docker.pkg.github.com/cryxy/webcam-archive/archive-server-swarm 
+    tags: |
+      $(json.version)
