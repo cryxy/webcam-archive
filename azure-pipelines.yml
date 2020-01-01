@@ -5,6 +5,16 @@
 
 trigger:
 - master
+- release/*
+
+resources:         
+  containers:
+  - container: adaptopenjdk-jre-image
+    connection: 'cryxy@docker@hub'
+    image: adoptopenjdk 
+    trigger:
+      tags:
+      - 11-jre-hotspot
 
 pool:
   vmImage: 'ubuntu-latest'
