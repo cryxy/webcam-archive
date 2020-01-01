@@ -36,6 +36,6 @@ steps:
   inputs:
     command: buildAndPush
     dockerfile: '$(Build.SourcesDirectory)/archive-server-swarm/Dockerfile'
-    repository: docker.pkg.github.com/cryxy/webcam-archive/archive-server-swarm 
+    repository: cryxy/webcam-archive/archive-server-swarm 
     tags: |
       $(json.version)
