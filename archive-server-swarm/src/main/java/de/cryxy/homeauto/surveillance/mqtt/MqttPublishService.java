@@ -70,6 +70,7 @@ public class MqttPublishService {
 	public void onSnapshotEvent(@Observes(during = TransactionPhase.AFTER_SUCCESS) SnapshotEvent event) {
 		if (!publish) {
 			LOG.info("Ignore publish event!");
+			return;
 		}
 
 		// Create Jsonb and serialize
