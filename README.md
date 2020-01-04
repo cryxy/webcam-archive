@@ -1,2 +1,2 @@
 # webcam-archive
-collect and browser images from your survaillance webcam
+collect and browse images from your survaillance webcam
