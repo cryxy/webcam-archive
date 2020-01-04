@@ -21,10 +21,10 @@ scmCommentPrefix='GS1: '
 mvn --batch-mode release:prepare release:perform -DscmCommentPrefix="$scmCommentPrefix" -DreleaseVersion=$releaseVersion -DdevelopmentVersion=$developmentVersion
 
 # Start the release by creating a new release branch
-git checkout -b release/$releaseVersion archive-server-$releaseVersion
+#git checkout -b release/$releaseVersion archive-server-$releaseVersion
 
 # go to the master branch
-git checkout master
+#git checkout master
 
 # Finally push everything
-git push --all && git push --tags
+#git push --all && git push --tags
