@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>de.cryxy.homeauto.surveillance</groupId>
 		<artifactId>archive-server-build</artifactId>
-		<version>2.0.1</version>
+		<version>2.0.2-SNAPSHOT</version>
 		<relativePath>../archive-server-build</relativePath>
 	</parent>
 	<artifactId>archive-server-common</artifactId>
